@@ -1,0 +1,5 @@
+[caps]
+automationName = "UIAutomator2"
+platformName = "Android"
+deviceName = "Android Emulator"
+app = "D:\\QANinja\\appium-ruby\\automacao-mobile\\app\\twp.apk"

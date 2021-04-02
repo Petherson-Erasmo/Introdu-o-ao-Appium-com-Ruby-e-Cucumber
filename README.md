@@ -1,2 +1,2 @@
-# Introdu-o-ao-Appium-com-Ruby-e-Cucumber
-Esse repositório vai ser usado para controle de versão, para anotar dicas e sugestões.
+# Introducao-ao-Appium-com-Ruby-e-Cucumber
+Esse repositório vai ser usado para controle de versão, anotar dicas e sugestões.
