@@ -5,14 +5,15 @@ Dado('que acesso a tela Botões de Radio') do
     @nav.tap_by_text("BOTÕES DE RADIO")
 end
   
-Quando('eu escolho a opção Ruby') do
-    @radio_locator = "//android.widget.RadioButton[contains(@text, 'Ruby')]"
-    find_element(xpath:@radio_locator).click
+Quando('eu escolho a opção {string}') do |expect_text|
+    # @radio_locator = "//android.widget.RadioButton[contains(@text, 'Ruby')]"              # Implementado pelo professor
+    # find_element(xpath:@radio_locator).click                                              # Implementado pelo professor
+    @radio.click_radio(expect_text)
 end
   
-Então('esta opção deve ser marcada') do
-    radio_result = find_element(xpath:@radio_locator)
-    expect(radio_result.checked).to eql "true" # está retornando um tipo string
+Então('{string} deve ser marcada') do |expect_text|
+    # radio_result = find_element(xpath:@radio_locator)                                     # Implementado pelo professor
+    expect(@radio.radio_result(expect_text).checked).to eql "true" # está retornando um tipo string
 end
 
 # @checkbox  e  @allCheckbox
@@ -23,14 +24,16 @@ Dado('que acesso a tela Checkbox') do
 end
 
 # @checkbox
-Quando('eu marco a opção Ruby') do
-    @check_locator = "//android.widget.CheckBox[contains(@text, 'Ruby')]"
-    find_element(xpath:@check_locator).click
+Quando('eu marco a opção {string}') do |expect_text|
+    # check_locator = "//android.widget.CheckBox[contains(@text, 'Ruby')]"                  # Implementado pelo professor
+    # find_element(xpath: @check_locator).click                                             # Implementado pelo professor
+
+    @checkbox.click_check(expect_text)
 end
 
-Então('esta opção deve estar marcada') do
-    @check_result = find_element(xpath: @check_locator)
-    expect(@check_result.checked).to eql "true" # está retornando um tipo string
+Então('{string} deve estar marcada') do |expect_text|
+    # @check_result = find_element(xpath: @check_locator)                                   # Implementado pelo professor
+    expect(@checkbox.check_result(expect_text).checked).to eql "true" # está retornando um tipo string
 end
 
 # @allCheckbox
@@ -40,15 +43,16 @@ Quando('eu marco as seguintes techs:') do |table|
    
     @techs.each do |item|
         # log(item["tech"]) # Lista item por item dentro do loop
-        check_locator = "//android.widget.CheckBox[contains(@text, '#{item["tech"]}')]"
-        find_element(xpath: check_locator).click
+        # check_locator = "//android.widget.CheckBox[contains(@text, '#{item["tech"]}')]"   # Implementado pelo professor
+        # find_element(xpath: check_locator).click                                          # Implementado pelo professor
+        @checkbox.click_check(item["tech"])
     end
 end
 
 Então('todas essas opções devem estar marcadas') do
     @techs.each do |item|
-        check_locator = "//android.widget.CheckBox[contains(@text, '#{item["tech"]}')]"
-        check_result = find_element(xpath: check_locator)
-        expect(check_result.checked).to eql "true"
+        # check_locator = "//android.widget.CheckBox[contains(@text, '#{item["tech"]}')]"   # Implementado pelo professor
+        # check_result = find_element(xpath: check_locator)                                 # Implementado pelo professor
+        expect(@checkbox.check_result(item["tech"]).checked).to eql "true"
     end        
 end

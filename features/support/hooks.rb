@@ -5,6 +5,10 @@ Before do
   @nav = Navegator.new
   @login = LoginScreen.new
   @toaster = Toaster.new
+  @checkbox = Checkbox.new
+  @radio = RadioButton.new
+  @buttons = Buttons.new
+  @avengers = Avengers.new
 
   # Evento de clique no botão Começar
   find_element(xpath:"//android.widget.Button[@text='COMEÇAR']").click
