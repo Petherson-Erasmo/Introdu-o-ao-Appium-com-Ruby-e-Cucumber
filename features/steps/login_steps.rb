@@ -12,5 +12,5 @@ end
 Então('devo ver a notificação: {string}') do |notice|
     # log(get_source) # pega o xml da tela exibe no terminal
     
-    expect(@login.toast.text).to eql notice
+    expect(@toaster.toast.text).to eql notice
 end
